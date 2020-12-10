@@ -2,13 +2,17 @@
 # Author = Jayascript
 # Date = December 2020
 
-with open((__file__.rstrip("code.py")+"input.txt"), 'r') as input_file:
-    input = input_file.read()
+import itertools
+import numpy as np
+
+
+def iterate(combos):
+    result =  [x for x in itertools.combinations(np.loadtxt("input.txt"), r=combos) if sum(x) == 2020]
+    return np.prod(result[0])
+
+
+print("Part One : "+ str(iterate(2)))
 
 
 
-print("Part One : "+ str(None))
-
-
-
-print("Part Two : "+ str(None))
+print("Part Two : "+ str(iterate(3)))
